@@ -1,0 +1,94 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-spoiler-section {
+	padding: 2px;
+	height: fit-content;
+	margin: 1rem 0px;
+}
+
+.spoiler-section-header{
+	border-bottom: 2px solid transparent;
+	display: flex;
+	align-items: flex-end;
+}
+
+.spoiler-section-header p{
+	margin: 0px;
+}
+
+.spoiler-section-button{
+	width: fit-content;
+	user-select: none;
+	cursor: pointer;
+	padding: 3px 6px;
+	margin-right: 10px;
+
+	transition: all 300ms ease-in-out;
+}
+
+.spoiler-section-button:hover{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+
+	filter: brightness(120%);
+}
+
+.spoiler-section-button-curr{
+	text-decoration: underline;
+}
+
+.spoiler-section-title{
+	font-size: 1.2em;
+}
+
+.spoiler-section-contents{
+	// transition: max-height 600ms ease-in-out;
+	box-sizing: border-box;
+	display: grid;
+	width: 100%;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 600ms;
+}
+
+.spoiler-section-inner{
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	padding: 0px 1em;
+}
+
+.editor-spoiler-section-inner .wp-block-image,
+.spoiler-section-inner .wp-block-image{
+	margin-top: 16px;
+}
+
+.editor-spoiler-section-inner .wp-block-image.aligncenter,
+.spoiler-section-inner .wp-block-image.aligncenter{
+	margin-left: auto;
+	margin-right: auto;
+}
+.editor-spoiler-section-inner .wp-block-image.alignright,
+.spoiler-section-inner .wp-block-image.alignright{
+	margin-left: auto;
+	margin-right: 0;
+}
+.editor-spoiler-section-inner .wp-block-image.alignleft,
+.spoiler-section-inner .wp-block-image.alignleft{
+	margin-left: 0;
+	margin-right: auto;
+}
+
+
+.spoiler-section-visible{
+	grid-template-rows: 1fr;
+}
+
+.spoiler-section-hidden{
+	grid-template-rows: 0fr;
+}

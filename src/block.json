@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/spoiler-section",
+	"version": "0.1.0",
+	"title": "Spoiler Section",
+	"category": "text",
+	"icon": "hidden",
+	"description": "Text and image container with a hide/show button",
+	"example": {},
+	"supports": {
+		"html": false,
+		"color":{
+			"background": false
+		},
+		"align": [
+			"full",
+			"wide"
+		]
+	},
+	"parent": ["core/post-content"],
+	"textdomain": "spoiler-section",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"title":{
+			"type": "string"
+		},
+		"buttonColor":{
+			"type":"string",
+			"default":"#f05151"
+		},
+		"bgColor":{
+			"type":"string",
+			"default":"rgb(240, 81, 81, 0.6)"
+		}	
+	}
+}
