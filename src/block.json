@@ -35,6 +35,10 @@
 		"bgColor":{
 			"type":"string",
 			"default":"rgb(240, 81, 81, 0.6)"
+		},
+		"txtColor":{
+			"type":"string",
+			"default":""
 		}	
 	}
 }

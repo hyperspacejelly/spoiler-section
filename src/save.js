@@ -16,7 +16,7 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save({attributes}) {
-	const {title, buttonColor, bgColor} = attributes;
+	const {title, buttonColor, bgColor, txtColor} = attributes;
 
 	return (
 		<div { ...useBlockProps.save() } >
@@ -25,9 +25,10 @@ export default function save({attributes}) {
 					borderBottomColor: buttonColor
 				}}>
 				<div
-					className='spoiler-section-button'
+					className='spoiler-section-button button-pointer'
 					style={{
-						backgroundColor: buttonColor
+						backgroundColor: buttonColor,
+						color:txtColor==""?"inherit":txtColor
 				}}>
 					<span>SHOW</span>
 					/
@@ -50,7 +51,10 @@ export default function save({attributes}) {
 					backgroundColor: bgColor
 				}}
 				>
-					<div className='spoiler-section-inner'>
+					<div className='spoiler-section-inner'  
+						style={{
+						color:txtColor==""?"inherit":txtColor
+					}}>
 						<InnerBlocks.Content />
 					</div>
 			</div>

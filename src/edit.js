@@ -34,7 +34,7 @@ import './editor.scss';
 export default function Edit( { attributes, setAttributes } ) {
 	const ALLOWED_BLOCKS = ['core/heading', 'core/paragraph', 'core/image'];
 
-	const { title, buttonColor, bgColor } = attributes;
+	const { title, buttonColor, bgColor, txtColor } = attributes;
 
 	const hexToRGB = (hex, transp) => {
 		const r = parseInt(hex.slice(1,3), 16);
@@ -51,6 +51,10 @@ export default function Edit( { attributes, setAttributes } ) {
 	const onChangeColor = ( val )=>{
 		setAttributes({buttonColor: val});
 		setAttributes({bgColor: hexToRGB(val, 0.6) });
+	}
+
+	const onChangeTxtColor = ( val )=>{
+		setAttributes({txtColor: val});
 	}
 
 	return (
@@ -72,6 +76,16 @@ export default function Edit( { attributes, setAttributes } ) {
 							}]
 						}
 					/>
+					<PanelColorSettings 
+						title='Inner text color'
+						colorSettings={
+							[{
+								value: txtColor,
+								onChange: onChangeTxtColor,
+								label:"Inner text color"
+							}]
+						}
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<div {...useBlockProps()} >
@@ -84,6 +98,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						className='spoiler-section-button'
 						style={{
 							backgroundColor: buttonColor,
+							color:txtColor==""?"inherit":txtColor,
 							userSelect: "none"
 					}}>
 						SHOW/HIDE
@@ -117,9 +132,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					className='editor-spoiler-section-inner'
 					style={{
 						padding:"1px 1em",
-						backgroundColor: bgColor
+						backgroundColor: bgColor,
+						color:txtColor==""?"inherit":txtColor
 				}}>
-					<InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
+					<InnerBlocks allowedBlocks={ALLOWED_BLOCKS}/>
 				</div>
 			</div>
 		</>	
